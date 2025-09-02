@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <style>
+    body { font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; margin:2rem; 
+    background-image: url('{{ request.static_url("chronoQuest:static/img/bg.webp") }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+    .panel { max-width: 480px; margin: 0 auto; background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:1.2rem 1.4rem; box-shadow:0 10px 30px rgba(0,0,0,.08); }
+    label { display:block; font-weight:600; margin:.6rem 0 .25rem; }
+    input { width:100%; padding:.6rem .7rem; border:1px solid #d1d5db; border-radius:8px; }
+    small { color:#6b7280; }
+    button { margin-top: .9rem; padding:.6rem .9rem; border-radius:10px; border:1px solid #4f46e5; background:#4f46e5; color:#fff; }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>{{ title }}</h1>
+    <form method="post" action="{{ request.route_url('signup') }}">
+      <label for="email">Školní e-mail</label>
+      <input id="email" name="email" type="email" required>
+
+      <label for="password">Heslo</label>
+      <input id="password" name="password" type="password" required>
+
+      <label for="name">Jméno (volitelné)</label>
+      <input id="name" name="name" type="text">
+      <small>Role (žák/učitel) se určí na backendu podle pravidel školy.</small>
+
+      <button type="submit">Vytvořit účet</button>
+    </form>
+  </div>
+</body>
+</html>
