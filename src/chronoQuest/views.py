@@ -1,4 +1,9 @@
 from pyramid.view import view_config
+from pyramid.httpexceptions import HTTPFound
+
+@view_config(route_name='root')
+def root_view(request):
+    return HTTPFound(location=request.route_url('home'))
 
 
 @view_config(route_name='home', renderer='C:\\Users\\Martin\\Desktop\\ŠR 25-26\\Tools\\ChronoQuest\\chrono_quest\\src\\chronoQuest\\templates\\home.jinja2')
