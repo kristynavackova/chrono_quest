@@ -22,6 +22,8 @@ def main(global_config=None, **settings):
         config.add_route('themes','/themes')
         config.add_route('login', '/login')
         config.add_route('signup', '/signup')
+        # Dev endpoint pro testování e-mailů - smaž před nasazením do produkce!
+        config.add_route("mail_test", "/__mailtest")
         config.scan('.views')
         app = config.make_wsgi_app()
     return app
