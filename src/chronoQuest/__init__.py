@@ -6,7 +6,7 @@ def main(global_config=None, **settings):
     mimetypes.add_type('image/webp', '.webp', strict=True)
     with Configurator(settings=settings) as config:
         config.include("pyramid_jinja2")
-        config.add_static_view(name='static', path='chronoQuest:static', cache_max_age=0)
+        config.add_static_view(name='static', path='chronoQuest:static', cache_max_age=86400)
         config.add_route("root","/")
         config.add_route("home","/home")
         config.add_route('themes','/themes')
